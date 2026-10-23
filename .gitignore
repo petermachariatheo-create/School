@@ -1,0 +1,25 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.DS_Store
+Thumbs.db
+
+# Runtime data: local school database, WAL sidecars, backups
+data/
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# Local environment
+.env
+.env.local
+*.local
+
+# Editor
+.vscode/
+.idea/
+
+# Development scratch: screenshots and browser profiles
+.tmp/

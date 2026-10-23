@@ -1,0 +1,97 @@
+/* Card list layout for mobile-friendly entity views */
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .card-list {
+    grid-template-columns: 1fr;
+    padding: 0.25rem;
+  }
+}
+
+.record-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 1rem;
+  transition:
+    box-shadow 0.15s,
+    transform 0.1s;
+}
+
+.record-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-1px);
+}
+
+.record-card.deleted {
+  opacity: 0.6;
+  background: var(--surface-muted);
+  border-color: var(--border-strong);
+}
+
+.record-card.pending {
+  border-left: 3px solid var(--warning);
+}
+
+.record-card__main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.record-card__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.record-card__field--name .student-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.record-card__field--status {
+  display: flex;
+  justify-content: center;
+}
+
+.record-card__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+
+.record-card__actions .sync-indicator {
+  flex-shrink: 0;
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  .card-list {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media print {
+  .record-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid var(--border);
+  }
+  .record-card__actions {
+    display: none;
+  }
+}

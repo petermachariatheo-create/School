@@ -1,0 +1,36 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc"],
+  "env": {
+    "node": true,
+    "browser": true,
+    "es2024": true
+  },
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn",
+    "pedantic": "off"
+  },
+  "rules": {
+    "no-console": "off",
+    "typescript/no-explicit-any": "error",
+    "typescript/consistent-type-imports": "error",
+    "typescript/no-unused-vars": "error",
+    "eqeqeq": ["error", "always", { "null": "ignore" }],
+    "no-await-in-loop": "warn",
+    "unicorn/prefer-node-protocol": "error",
+    "unicorn/prefer-string-slice": "error",
+    "unicorn/no-null": "off",
+    "unicorn/no-array-sort": "off"
+  },
+  "ignorePatterns": ["**/dist/**", "**/node_modules/**", "**/coverage/**"],
+  "overrides": [
+    {
+      "files": ["packages/server/**", "scripts/**"],
+      "rules": {
+        "unicorn/require-post-message-target-origin": "off"
+      }
+    }
+  ]
+}
